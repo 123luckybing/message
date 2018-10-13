@@ -15,4 +15,16 @@ npm install react-router-dom axios less-loader less
    配置less方法: https://blog.csdn.net/echo008/article/details/78311831
    配置之后要重新启动一下！！npm start
    prod和dev都要改，prod是上线之后用，不改上线会报错！！
+
 5. antd: npm install antd / yarn add antd
+6. babel: yarn add babel-plugin-import (实现按需加载)
+antd和babel在webpack中的配置参考文章：
+https://www.cnblogs.com/fm060/p/7736383.html
+然后npm start重启一下～
+
+(二): calc计算方法的使用
+  1. 建立style文件夹，建立common.less
+     在里面定义全局变量
+     eg:@color: red;
+  2. calc用法：
+     http://www.css88.com/book/css/values/functional/calc().htm

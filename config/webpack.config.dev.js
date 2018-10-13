@@ -180,7 +180,6 @@ module.exports = {
             options: {
               formatter: require.resolve('react-dev-utils/eslintFormatter'),
               eslintPath: require.resolve('eslint'),
-              
             },
             loader: require.resolve('eslint-loader'),
           },
@@ -210,22 +209,11 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve('babel-loader'),
             options: {
-              customize: require.resolve(
-                'babel-preset-react-app/webpack-overrides'
-              ),
-              
-              plugins: [
-                [
-                  require.resolve('babel-plugin-named-asset-import'),
-                  {
-                    loaderMap: {
-                      svg: {
-                        ReactComponent: '@svgr/webpack?-prettier,-svgo![path]',
-                      },
-                    },
-                  },
-                ],
-              ],
+              plugins:
+                [['import', {
+                  libraryName: 'antd',
+                  style: 'css'
+                }]],
               // This is a feature of `babel-loader` for webpack (not Babel itself).
               // It enables caching results in ./node_modules/.cache/babel-loader/
               // directory for faster rebuilds.
