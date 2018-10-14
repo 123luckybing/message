@@ -58,6 +58,7 @@ class Header extends Component {
             <span className="today-weather">温度:{wendu}摄氏度</span>
           </Col>
         </Row>
+        <div className="triangle"></div>
       </div>
     );
   }

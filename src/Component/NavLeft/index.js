@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './index.less';
 import MenuConfig from '../../Config/MenuConfig';
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/Logo.jpeg';
 const SubMenu = Menu.SubMenu;
 
@@ -34,9 +35,9 @@ class NavLeft extends Component {
         )
       } else {
         return (
-          <Menu.Item key={elem.path}>
-            <span>{elem.title}</span>
-          </Menu.Item>
+            <Menu.Item key={elem.path}>
+              <Link to={elem.path}>{elem.title}</Link>
+            </Menu.Item>
         )
       }
     });
@@ -50,7 +51,7 @@ class NavLeft extends Component {
         <h3 className="title">共享单车后台管理系统</h3>
         <Menu
           theme='dark' // 背景颜色
-          mode="inline" // 子菜单展开模式
+          mode="vertical" // 子菜单展开模式
         >
           {this.state.MenuTree}
         </Menu>

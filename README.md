@@ -39,3 +39,9 @@ Header:头部组件
 接口使用参考文章: https://www.sojson.com/blog/305.html
 API: http://t.weather.sojson.com/api/weather/city/+ city.code
 当前采用的是北京的code: 101010100
+
+(四):
+项目先进来，第一个页面是路由App.js
+{this.props.children}
+子路由
+

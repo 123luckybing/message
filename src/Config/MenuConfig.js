@@ -3,10 +3,10 @@
 const menuList = [
   {
     title: '首页',
-    path: '/admin/home'
+    path: '/admin'
   },{
     title: 'UI',
-    path:'／admin/ui',
+    path:'/admin/ui',
     children:[
       {
         title: '按钮',
@@ -16,51 +16,51 @@ const menuList = [
         path: '/admin/ui/modals'
       },{
         title:'Loading',
-        path:'/loading'
+        path:'/admin/ui/loading'
       },{
         title:'通知提醒',
-        path:'/notice'
+        path:'/admin/ui/notice'
       },{
         title:'全局提示',
-        path:'/message'
+        path:'/admin/ui/message'
       },{
         title:'Tab页签',
-        path:'/tab'
+        path:'/admin/ui/tab'
       },{
         title:'图片画廊',
-        path:'/picWall'
+        path:'/admin/ui/picWall'
       },{
         title:'轮播图',
-        path:'/lunbo'
+        path:'/admin/ui/lunbo'
       }
     ]
   },{
     title:'表单',
-    path:'/form'
+    path:'/admin/form'
   },{
     title:'表格',
-    path:'/table'
+    path:'/admin/table'
   },{
     title:'富文本',
-    path:'/text'
+    path:'/admin/text'
   },{
     title:'城市管理',
-    path:'/city'
+    path:'/admin/city'
   },{
     title:'订单管理',
-    path:'/order'
+    path:'/admin/order'
   },{
     title:'员工管理',
-    path:'/person'
+    path:'/admin/person'
   },{
     title:'车辆地图',
-    path:'/bikeMap'
+    path:'/admin/bikeMap'
   },{
     title:'图标',
-    path:'/icon'
+    path:'/admin/icon'
   },{
     title:'权限设置',
-    path:'/power'
+    path:'/admin/power'
   }
 ];
 
