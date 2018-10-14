@@ -9,10 +9,10 @@ class App extends Component {
     return (
       <div className="App">
         <Row>
-          <Col span={3}>
+          <Col span={4}>
             <NavLeft />
           </Col>
-          <Col span={21}>
+          <Col span={20}>
             <Header />
             <Row>
               <div className="content"> Content</div>

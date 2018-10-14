@@ -27,4 +27,15 @@ https://www.cnblogs.com/fm060/p/7736383.html
      在里面定义全局变量
      eg:@color: red;
   2. calc用法：
-     http://www.css88.com/book/css/values/functional/calc().htm
+     http://www.css88.com/book/css/values/functional/calc().html
+
+(三): 各个组件功能以及重点部分实现：
+Footer:脚部组件,系统开发者的个人信息
+Header:头部组件
+(1) 显示当前时间: 年-月-日 时:分:秒 
+    config/Time.js 封装了显示的函数
+(2) 显示当前温度: 调用百度天气接口API
+(需要解决跨域问题 定义全局服务器代理API)
+接口使用参考文章: https://www.sojson.com/blog/305.html
+API: http://t.weather.sojson.com/api/weather/city/+ city.code
+当前采用的是北京的code: 101010100

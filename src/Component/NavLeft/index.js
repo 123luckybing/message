@@ -42,13 +42,12 @@ class NavLeft extends Component {
     });
   }
   render() {
-    console.log(MenuConfig);
     return (
       <div className='navLeft-wrapper'>
         <div className="logo">
           <img src={ Logo } alt=""/>
         </div>
-        <h3 className="title">欢迎来到共享单车后台管理系统</h3>
+        <h3 className="title">共享单车后台管理系统</h3>
         <Menu
           theme='dark' // 背景颜色
           mode="inline" // 子菜单展开模式
