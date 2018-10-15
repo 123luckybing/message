@@ -43,5 +43,5 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
 (四):
 项目先进来，第一个页面是路由App.js
 {this.props.children}
-子路由
+子路由  {this.props.match.params.name}
 

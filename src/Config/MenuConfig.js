@@ -10,7 +10,7 @@ const menuList = [
     children:[
       {
         title: '按钮',
-        path: '/admin/ui/bottom'
+        path: '/admin/ui/button'
       },{
         title: '弹框',
         path: '/admin/ui/modals'
