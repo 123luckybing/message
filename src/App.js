@@ -8,6 +8,9 @@ import Button from './Component/Button';
 import Modal from './Component/Modal';
 import NoMatch from './Component/NoMatch';
 import Message from './Component/Message';
+import Loading from './Component/Loading';
+import Notification from './Component/Notification';
+import Tab from './Component/Tab';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -28,6 +31,9 @@ class App extends Component {
                     <Route path='/admin/ui/button' component={Button}/>
                     <Route path='/admin/ui/modals' component={Modal}/>
                     <Route path='/admin/ui/message' component={Message}/>
+                    <Route path='/admin/ui/loading' component={Loading}/>
+                    <Route path='/admin/ui/notice' component={Notification}/>
+                    <Route path='/admin/ui/tab' component={Tab}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>

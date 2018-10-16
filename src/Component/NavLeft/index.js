@@ -18,7 +18,7 @@ class NavLeft extends Component {
   }
   // 递归
   list(data) {
-    return data.map((elem,index) => {
+    return data.map((elem) => {
        // 做判断，如果有子路有,如果没有子路由 写html就要return()
       if(elem.children) {
         return (
@@ -46,7 +46,7 @@ class NavLeft extends Component {
     return (
       <div className='navLeft-wrapper'>
         <div className="logo">
-          <img src={ Logo } alt=""/>
+          <Link to='/admin'><img src={ Logo } alt=""/></Link>
         </div>
         <h3 className="title">共享单车后台管理系统</h3>
         <Menu
