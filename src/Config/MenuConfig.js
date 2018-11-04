@@ -36,7 +36,16 @@ const menuList = [
     ]
   },{
     title:'表单',
-    path:'/admin/form'
+    path:'/admin/form',
+    children:[
+      {
+        title:'登录',
+        path:'/admin/form/login'
+      },{
+        title:'注册',
+        path: '/admin/form/register'
+      }
+    ]
   },{
     title:'表格',
     path:'/admin/table'

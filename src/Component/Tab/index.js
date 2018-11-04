@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card,Tabs,message,Icon } from 'antd';
 import tablist from '../../Config/Tab.js';
-import { spawn } from 'child_process';
 const TabPane = Tabs.TabPane;
 // 选项卡
 class TabCom extends Component {
