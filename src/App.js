@@ -13,7 +13,9 @@ import Loading from './Component/Loading';
 import Notification from './Component/Notification';
 import LoginPractice from './Component/LoginPractice';
 import RegisterPractice from './Component/RegisterPractice';
+import City from './Component/City';
 import Tab from './Component/Tab';
+import Register from './Component/Register';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -41,10 +43,12 @@ class App extends Component {
                     <Route path='/admin/ui/tab' component={Tab}/>
                     <Route path='/admin/ui/tab' component={Carousel}/>
                     <Route path='/admin/ui/PicWall' component={PicWall}/>
+                    <Route path='/admin/city' component={City}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
               } />
+              <Route path='/Register' component={Register}/>
               {/* 404 */}
               <Route component={NotFound}/> 
             </Switch>
