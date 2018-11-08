@@ -45,3 +45,14 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
 {this.props.children}
 子路由  {this.props.match.params.name}
 
+(五): DatePicker 设置初始值需要moment插件，先下载，再使用，注册(Register)组件用过
+ yarn add moment
+ import moment from 'moment';
+ initialValue: moment('1997-4-9'), // DatePicker初始值必须是moment对象，传字符串
+
+ (六): title通过 Helmet 来设置
+ yarn add react-helmet
+ import Helmet from 'react-helmet';
+ <Helmet title='注册'/> 写在title里面
+
+
