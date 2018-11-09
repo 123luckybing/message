@@ -48,7 +48,16 @@ const menuList = [
     ]
   },{
     title:'表格',
-    path:'/admin/table'
+    path:'/admin/table',
+    children:[
+      {
+        title: '基础表格',
+        path: '/admin/table/basic'
+      },{
+        title: '高级表格Mock',
+        path: '/admin/table/high'
+      }
+    ]
   },{
     title:'富文本',
     path:'/admin/text'

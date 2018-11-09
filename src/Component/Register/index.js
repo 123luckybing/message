@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import './index.less';
 import moment from 'moment';
 import Helmet from 'react-helmet';
-import { Card,Form,Input,Button,Radio,InputNumber,Select,message,Switch,DatePicker,TimePicker,Upload} from 'antd';
+import { Card,Form,Input,Button,Radio,InputNumber,Select,message,Switch,DatePicker,TimePicker,Upload,Icon} from 'antd';
 const TextArea = Input.TextArea;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -10,8 +10,46 @@ const RadioGroup = Radio.Group;
 class Reg extends Component {
   constructor() {
     super();
+    this.state = {
+      imageUrl:'',
+      previewImage:'',
+      previewVisible: false,
+    }
     this.submit = this.submit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.getBase64 = this.getBase64.bind(this);
+    this.handlePreview = this.handlePreview.bind(this);
   }
+
+  // 上传图片预览
+  handlePreview(file) {
+    this.setState({
+      previewImage: file.url || file.thumbUrl,
+      previewVisible: true,
+    });
+  }
+
+  // 上传图片
+  handleChange(info) {
+    if (info.file.status === 'uploading') {
+      this.setState({ loading: true });
+      return;
+    }
+    if (info.file.status === 'done') {
+      this.getBase64(info.file.originFileObj, imageUrl => this.setState({
+        imageUrl,
+        loading: false,
+      }));
+    }
+  }
+
+  // 图片格式
+  getBase64(img, callback) {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => callback(reader.result));
+    reader.readAsDataURL(img);
+  }
+  
   submit() {
     const userInfo = this.props.form.getFieldsValue();
     this.props.form.validateFields( (err) => {
@@ -23,6 +61,7 @@ class Reg extends Component {
   }
   render() {
     // label和Input排列
+    const { imageUrl } = this.state;
     const { getFieldDecorator} = this.props.form;
     const formItemLayout = {
       labelCol: {
@@ -193,8 +232,16 @@ class Reg extends Component {
             </FormItem>
             <FormItem label='上传头像' {...formItemLayout}>
               {
-                getFieldDecorator('pic',{})(
-                  
+                getFieldDecorator('pic')(
+                  <Upload
+                    listType='picture-card' // 类型
+                    action='//jsonplaceholder.typicode.com/posts/'
+                    showUploadList={true}
+                    onChange={this.handleChange}
+                    onPreview={this.handlePreview}
+                  >
+                  {imageUrl ? <img src={imageUrl} alt="avatar" /> : <Icon type='plus' />}
+                </Upload>
                 )
               }
             </FormItem>

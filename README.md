@@ -55,4 +55,6 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
  import Helmet from 'react-helmet';
  <Helmet title='注册'/> 写在title里面
 
+ (七)mock的使用: 随机生成数据，拦截ajax请求，模拟后台 (表格高级使用)
+ yarn add mock
 

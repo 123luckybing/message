@@ -52,7 +52,9 @@ class Header extends Component {
           </Col>
         </Row>
         <Row className='second'>
-          <Col span={4} className="home">首页</Col>
+          <Col span={4} className="home">
+              首页
+          </Col>
           <Col span={20} className="today">
             <span className="today-data">时间:{time}</span>
             <span className="today-weather">温度:{wendu}摄氏度</span>

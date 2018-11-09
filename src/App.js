@@ -16,6 +16,8 @@ import RegisterPractice from './Component/RegisterPractice';
 import City from './Component/City';
 import Tab from './Component/Tab';
 import Register from './Component/Register';
+import TableBasic from './Component/TableBasic';
+import TableHigh from './Component/TableHigh';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -44,6 +46,8 @@ class App extends Component {
                     <Route path='/admin/ui/tab' component={Carousel}/>
                     <Route path='/admin/ui/PicWall' component={PicWall}/>
                     <Route path='/admin/city' component={City}/>
+                    <Route path='/admin/table/basic' component={TableBasic}/>
+                    <Route path='/admin/table/high' component={TableHigh}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
