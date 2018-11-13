@@ -29,6 +29,13 @@ class TableHigh extends Component {
     },{
       title:'年龄',
       dataIndex: 'age'
+    },{
+      title:'性别',
+      dataIndex: 'sex',
+      // 后端接口返回的 1/2 然后进行判断
+      render(sex) {
+        return sex === 1 ? '男':'女';
+      }
     }];
     const { loading } = this.state;
     return (

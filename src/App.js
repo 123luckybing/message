@@ -21,6 +21,8 @@ import TableHigh from './Component/TableHigh';
 import Text from './Component/Text';
 import Order from './Component/Order';
 import Staff from './Component/Staff';
+import SmallIcon from './Component/SmallIcon';
+import Power from './Component/Power';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -55,13 +57,15 @@ class App extends Component {
                     <Route path='/admin/order' component={Order}/>
                     <Route path='/admin/person' component={Staff}/>
                     <Route path='/admin/bikeMap' component={Staff}/>
+                    <Route path='/admin/icon' component={SmallIcon}/>
+                    <Route path='/admin/power' component={Power}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
               } />
               <Route path='/Register' component={Register}/>
               {/* 404 */}
-              <Route component={NotFound}/> 
+              <Route component={NotFound}/>
             </Switch>
           </div>
         </Router>
