@@ -56,5 +56,7 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
  <Helmet title='注册'/> 写在title里面
 
  (七)mock的使用: 随机生成数据，拦截ajax请求，模拟后台 (表格高级使用)
- yarn add mock
+ (1) 官网注册: https://www.easy-mock.com
+ 参考文章：https://blog.csdn.net/sai739295732/article/details/78687939
+ (2) 调接口的时候，通过Spin进行loading,数据加载出来之后，loading去掉
 

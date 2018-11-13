@@ -18,6 +18,9 @@ import Tab from './Component/Tab';
 import Register from './Component/Register';
 import TableBasic from './Component/TableBasic';
 import TableHigh from './Component/TableHigh';
+import Text from './Component/Text';
+import Order from './Component/Order';
+import Staff from './Component/Staff';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -48,6 +51,10 @@ class App extends Component {
                     <Route path='/admin/city' component={City}/>
                     <Route path='/admin/table/basic' component={TableBasic}/>
                     <Route path='/admin/table/high' component={TableHigh}/>
+                    <Route path='/admin/text' component={Text}/>
+                    <Route path='/admin/order' component={Order}/>
+                    <Route path='/admin/person' component={Staff}/>
+                    <Route path='/admin/bikeMap' component={Staff}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
