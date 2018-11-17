@@ -11,18 +11,34 @@ class Order extends Component {
     this.state = {
       visible: false,
       info:{},
+      // selectedRows: {},
+      // selectedRowKeys: '',
     }
     this.orderFinished = this.orderFinished.bind(this);
     this.ok = this.ok.bind(this);
     this.cancel = this.cancel.bind(this);
     this.getList = this.getList.bind(this);
     this.getSelectId = this.getSelectId.bind(this);
+    this.orderDetail = this.orderDetail.bind(this);
+  }
+
+  // 点击订单详情
+  orderDetail() {
+    const { selectedRowKeys,selectedRows } = this.state;
+     // 判断有没有选择订单
+    if(selectedRowKeys !== undefined) { 
+      this.props.history.push(`/order/detail/${selectedRows[0].orderNumber}`);
+    } else {
+      message.warning('请选择订单');
+    }
   }
 
   // 当单选按钮后，获取id
-  getSelectId(selectedRowKeys) {
+  getSelectId(selectedRowKeys,selectedRows) {
+    console.log(selectedRowKeys,selectedRows);
     this.setState({
       selectedRowKeys: selectedRowKeys[0],
+      selectedRows: selectedRows,
     });
   }
 
@@ -69,7 +85,6 @@ class Order extends Component {
   // 点击结束订单
   orderFinished() {
     const { selectedRowKeys } = this.state;
-    console.log(selectedRowKeys);
     // 判断有没有选择订单
     if(selectedRowKeys !== undefined) { 
       this.setState({
@@ -94,7 +109,7 @@ class Order extends Component {
       <div>
         <OrderSearch />
         <Card>
-          <Button type='primary'>订单详情</Button>
+          <Button type='primary' onClick={this.orderDetail}>订单详情</Button>
           <Button type='primary' onClick={this.orderFinished}>结束订单</Button>
         </Card>
         <OrderList getSelectId={this.getSelectId}/>

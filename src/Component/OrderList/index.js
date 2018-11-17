@@ -31,7 +31,7 @@ class Orderlist extends Component {
     const rowSelection = {
       type: 'radio', // 单选还是多选
       onChange: (selectedRowKeys, selectedRows) => {
-        this.props.getSelectId(selectedRowKeys);
+        this.props.getSelectId(selectedRowKeys,selectedRows);
         console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
       }
     }

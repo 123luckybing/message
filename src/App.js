@@ -23,6 +23,7 @@ import Order from './Component/Order';
 import Staff from './Component/Staff';
 import SmallIcon from './Component/SmallIcon';
 import Power from './Component/Power';
+import OrderDetail from './Component/OrderDetail';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -63,8 +64,9 @@ class App extends Component {
                   </Switch>  
                 </Admin>
               } />
-              <Route path='/Register' component={Register}/>
+              <Route path='/Register' component={Register} />
               {/* 404 */}
+              <Route path='/order/detail/:orderNumber' component={OrderDetail} />
               <Route component={NotFound}/>
             </Switch>
           </div>
