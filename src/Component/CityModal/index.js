@@ -1,5 +1,7 @@
 import React,{ Component } from 'react';
-import { Modal,Form,Select,Radio } from 'antd';
+import { Modal,Form,Select,Radio,message } from 'antd';
+import axios from 'axios';
+import BaseUrl from '../../Config/BaseUrl';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
@@ -9,16 +11,27 @@ class CityModal extends Component {
     this.cancel = this.cancel.bind(this);
     this.ok =this.ok.bind(this);
   }
+  
   // 点击取消按钮
   cancel() {
     this.props.Cancel();
   }
 
   ok(){
-    // const cityInfo = this.props.form.getFieldsValue();
+    const cityInfo = this.props.form.getFieldsValue();
     this.props.form.validateFields( (err,value) => {
       if(!err) {
-        alert('yes');
+        axios.get(BaseUrl + '/city/open',{
+          params:{ // axios传数据
+            cityInfo: cityInfo,
+          }
+        }).then( (res) => {
+          message.info(`${res.data.result}`);
+          this.props.Cancel();
+          this.props.freshenList(); // 刷新列表
+        }).catch((err) => {
+          message.error(`${err}`);
+        });
       }
     });
   }
@@ -52,7 +65,7 @@ class CityModal extends Component {
                 }]
               })(
                 <Select>
-                  <Option value='全部'>全部</Option>
+                  <Option value='深圳'>深圳</Option>
                   <Option value='天津'>天津</Option>
                   <Option value='北京'>北京</Option>
                 </Select>

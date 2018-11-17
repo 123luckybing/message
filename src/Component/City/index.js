@@ -15,10 +15,11 @@ class City extends Component {
     }
     this.modalShow = this.modalShow.bind(this);
     this.cancel = this.cancel.bind(this);
+    this.freshenList = this.freshenList.bind(this);
   }
  
-  // 调接口
-  componentWillMount() {
+  // 刷新列表(重新请求数据)
+  freshenList() {
     axios.get(BaseUrl + '/city/list').then((res) => {
       this.setState({
         list: res.data.result,
@@ -27,6 +28,11 @@ class City extends Component {
     }).catch((err)=>{
       message.warn(err);
     });
+  }
+
+  // 调接口
+  componentWillMount() {
+    this.freshenList();
   }
 
   // 开通城市Modal展示
@@ -68,6 +74,7 @@ class City extends Component {
         <CityModal
           visible={visible} 
           Cancel={this.cancel}
+          freshenList = {this.freshenList}
         />
       </div>
     )
