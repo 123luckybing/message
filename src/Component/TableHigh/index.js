@@ -12,7 +12,7 @@ class TableHigh extends Component {
   componentDidMount() {
     // https://www.easy-mock.com/mock/5bea34fce6cbf97ac3a87d89/message/tabletest 接口预览的地址
     let baseUrl = 'https://www.easy-mock.com/mock/5bea34fce6cbf97ac3a87d89/message';
-    axios.get( baseUrl +'/tabletest').then((res) => {
+    axios.get( baseUrl +'/staff/list').then((res) => {
       this.setState({
         data:res.data.result, 
         loading: false // 数据请求回来之后loading结束

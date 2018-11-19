@@ -60,3 +60,8 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
  参考文章：https://blog.csdn.net/sai739295732/article/details/78687939
  (2) 调接口的时候，通过Spin进行loading,数据加载出来之后，loading去掉
 
+ (八)订单管理里面的地图功能实现：
+ 调用百度地图API：
+ https://map.baidu.com/   ->  下方(地图开放平台)  -->  开发文档 --> Web开发 -->  Javascript API --> 申请密钥
+
+

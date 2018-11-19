@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card,Form } from 'antd';
 import axios from 'axios';
 import baseUrl from '../../Config/BaseUrl';
+import OrderMap from '../OrderMap';
 const FormItem = Form.Item;
 class OrderDetail extends Component {
   constructor() {
@@ -52,6 +53,7 @@ class OrderDetail extends Component {
           title={`当前订单编号是:${this.props.match.params.orderNumber}`}
         >
           {/* 地图 */}
+          <OrderMap />
         </Card>
         <div style={{
           width: '800px',
