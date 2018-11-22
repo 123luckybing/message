@@ -56,6 +56,12 @@ const menuList = [
       },{
         title: '高级表格Mock',
         path: '/admin/table/high'
+      },{
+        title: '单选按钮',
+        path: '/admin/table/radio'
+      },{
+        title: '多选按钮',
+        path: '/admin/table/check'
       }
     ]
   },{

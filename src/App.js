@@ -24,6 +24,8 @@ import Staff from './Component/Staff';
 import SmallIcon from './Component/SmallIcon';
 import Power from './Component/Power';
 import OrderDetail from './Component/OrderDetail';
+import TableRadio from './Component/TableRadio';
+import TableCheck from './Component/TableCheck';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -60,6 +62,8 @@ class App extends Component {
                     <Route path='/admin/bikeMap' component={Staff}/>
                     <Route path='/admin/icon' component={SmallIcon}/>
                     <Route path='/admin/power' component={Power}/>
+                    <Route path='/admin/table/radio' component={TableRadio}/>
+                    <Route path='/admin/table/check' component={TableCheck}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
