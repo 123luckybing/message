@@ -10,7 +10,7 @@ const columns = [{
   dataIndex:'name'
 },{
   title: '创建时间',
-  dataIndex:'time'
+  dataIndex:'create_time'
 },{
   title: '授权人',
   dataIndex:'people'
