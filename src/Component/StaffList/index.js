@@ -12,7 +12,6 @@ class StaffList extends Component {
   }
   componentDidMount() {
     axios.get( baseUrl +'/staff/list').then((res) => {
-      console.log(res);
       this.setState({
         data:res.data.result, 
         loading: false // 数据请求回来之后loading结束
@@ -55,12 +54,19 @@ class StaffList extends Component {
       dataIndex: 'time'
     }];
     const { loading,data } = this.state;
+    const rowSelection = {
+      type: 'radio', // 单选还是多选
+      onChange: (selectedRowKeys, selectedRows) => {
+        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+      }
+    }
     return (
       <div>
         <Card>
           <Spin spinning={loading}>
             <Table 
               bordered
+              rowSelection={rowSelection}
               columns={columns}
               dataSource = {data}
             />

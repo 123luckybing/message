@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import StaffLogin from '../StaffLogin';
 import StaffList from '../StaffList';
-import { Button,Card,Modal } from 'antd';
+import { Button,Card } from 'antd';
 import EditStaff from '../EditStaff';
 import StaffAdd from '../StaffAdd';
 import StaffDelete from '../StaffDelete';
@@ -10,48 +10,53 @@ class Staff extends Component {
   constructor() {
     super();
     this.state = {
-      title: '1',
-      visible:false,
-      modalContent:''
+      addShow:false,
+      deleteShow: false,
+      editShow: false,
+      detailShow: false,
     }
     this.openModal = this.openModal.bind(this);
-    this.ok = this.ok.bind(this);
+    this.cancelAdd = this.cancelAdd.bind(this);
+    this.editCancel = this.editCancel.bind(this);
+  }
+
+  // 编辑员工关闭弹窗
+  editCancel() {
+    this.setState({
+      editShow: false
+    });
+  }
+
+  // 增加员工关闭弹窗
+  cancelAdd() {
+    this.setState({
+      addShow: false
+    });
   }
 
   // 打开弹窗
   openModal(type) {
-    this.setState({
-      visible: true,
-    });
     if(type === 'add') {
       this.setState({
-        title: '创建员工',
-        modalContent: <StaffAdd />
+        addShow: true,
       });
     } else if( type === 'edit' ) {
       this.setState({
-        title: '编辑员工',
-        modalContent: <EditStaff />
+        editShow: true,
       });
     } else if( type === 'detail' ) {
       this.setState({
-        title: '员工详情',
-        modalContent: <StaffDetail />
+        deleteShow: true,
       });
     } else {
       this.setState({
-        title: '删除员工',
-        modalContent: <StaffDelete />
+        detailShow: true,
       });
     }
   }
 
-  // 点击弹窗ok
-  ok() {
-
-  }
   render() {
-    const { title,visible,modalContent } = this.state;
+   const { addShow,deleteShow,editShow,detailShow } = this.state;
     return(
       <div>
         <StaffLogin />
@@ -61,14 +66,10 @@ class Staff extends Component {
           <Button type='primary' onClick={() => this.openModal('detail')}>员工详情</Button>
           <Button type='danger'  onClick={() => this.openModal('del')} icon='delete'>删除员工</Button>
         </Card>
-        <Modal
-          title={title}
-          visible={visible}
-          onOk={this.ok}
-          onCancel={() => {this.setState({visible: false})}}
-        >
-          { modalContent }
-        </Modal>
+         <StaffAdd visible={addShow} cancelAdd={this.cancelAdd}/>
+         <StaffDelete visible={deleteShow}/>
+         <StaffDetail visible={detailShow}/>
+         <EditStaff visible={editShow} editCancel={this.editCancel}/>
         <StaffList />
       </div>
     );
