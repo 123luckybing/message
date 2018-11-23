@@ -33,7 +33,7 @@ class PowerList extends Component {
   }
 
   componentDidMount() {
-    axios.get(baseUrl+ '').then( (res) => {
+    axios.get(baseUrl+ '/power/list').then( (res) => {
       this.setState({
         powerList:res.data.result,
       });
@@ -43,7 +43,7 @@ class PowerList extends Component {
   }
 
   render() {
-
+    const { powerList } = this.state;
     return(
       <div>
         <Card >
@@ -51,6 +51,7 @@ class PowerList extends Component {
             bordered
             rowSelection={rowSelection}
             columns={columns}
+            dataSource={powerList}
           />
         </Card>
       </div>
