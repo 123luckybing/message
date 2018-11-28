@@ -12,7 +12,39 @@ class Pie extends Component {
   constructor() {
     super();
     this.getOption = this.getOption.bind(this);
+    this.getOptionTwo = this.getOptionTwo.bind(this);
   }
+  getOptionTwo() {
+    let option = {
+      tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+      },
+      title: {
+        x: 'center',
+        text: '宣传方式'
+      },
+      legend: {
+        orient: 'vertical',
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+        x: 'right'
+      },
+      series: [{
+        name: '访问来源',
+        type:'pie',
+        radius: ['50%', '70%'], // 变成环形 两个圆的尺寸
+        data:[
+          {value:335, name:'直接访问'},
+          {value:310, name:'邮件营销'},
+          {value:234, name:'联盟广告'},
+          {value:135, name:'视频广告'},
+          {value:1548, name:'搜索引擎'}
+        ]
+      }],
+    }
+    return option;
+  }
+
   getOption() {
     let option = {
       title: {
@@ -71,11 +103,11 @@ class Pie extends Component {
           />
         </Card>
         <Card
-          title='环图骑行订单'
+          title='宣传方式统计'
         >
           <ReactEcharts 
             theme={echartTheme}
-            option={this.getOption()}
+            option={this.getOptionTwo()}
           />
         </Card>
       </div>

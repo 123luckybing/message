@@ -89,6 +89,9 @@ const menuList = [
     },{
       title:'饼图',
       path:'/admin/icon/pie',
+    },{
+      title:'折线图',
+      path:'/admin/icon/line',
     }]
   },{
     title:'权限设置',

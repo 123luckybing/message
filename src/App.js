@@ -27,6 +27,7 @@ import TableRadio from './Component/TableRadio';
 import TableCheck from './Component/TableCheck';
 import Pie from './Component/Pie';
 import Bar from './Component/Bar';
+import Line from './Component/Line';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -66,6 +67,7 @@ class App extends Component {
                     <Route path='/admin/table/check' component={TableCheck}/>
                     <Route path='/admin/icon/bar' component={Bar}/>
                     <Route path='/admin/icon/pie' component={Pie}/>
+                    <Route path='/admin/icon/line' component={Line}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>
