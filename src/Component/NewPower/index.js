@@ -13,15 +13,19 @@ class NewPower extends Component {
 
   newOk() {
     const newInfo = this.props.form.getFieldsValue();
-    axios.get(baseUrl + '/power/new',{
-      params: {
-        newInfo:newInfo
+    this.props.form.validateFields( (err,index) => {
+      if(!err) {
+        axios.get(baseUrl + '/power/new',{
+          params: {
+            newInfo:newInfo
+          }
+        }).then( (res) => {
+          message.info(res.data.result);
+          this.props.cancel();
+        }).catch( (err) => {
+          console.log(err);
+        });
       }
-    }).then( (res) => {
-      message.info(res.data.result);
-      this.props.cancel();
-    }).catch( (err) => {
-      console.log(err);
     });
   }
 
@@ -71,9 +75,8 @@ class NewPower extends Component {
                   }]
                 })(
                   <Select>
-                    <Option value='管理员'>管理员</Option>
-                    <Option value='客服人员'>客服人员</Option>
-                    <Option value='财务员'>财务员</Option>
+                    <Option value='开启'>开启</Option>
+                    <Option value='关闭'>关闭</Option>
                   </Select>
                 )
               }

@@ -65,7 +65,7 @@ const menuList = [
       }
     ]
   },{
-    title:'富文本',
+    title:'富文本编辑器',
     path:'/admin/text'
   },{
     title:'城市管理',
@@ -81,7 +81,15 @@ const menuList = [
     path:'/admin/bikeMap'
   },{
     title:'图标',
-    path:'/admin/icon'
+    path:'/admin/icon',
+    children:[
+      {
+      title:'柱形图',
+      path:'/admin/icon/bar',
+    },{
+      title:'饼图',
+      path:'/admin/icon/pie',
+    }]
   },{
     title:'权限设置',
     path:'/admin/power'

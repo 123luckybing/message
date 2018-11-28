@@ -21,11 +21,12 @@ import TableHigh from './Component/TableHigh';
 import Text from './Component/Text';
 import Order from './Component/Order';
 import Staff from './Component/Staff';
-import SmallIcon from './Component/SmallIcon';
 import Power from './Component/Power';
 import OrderDetail from './Component/OrderDetail';
 import TableRadio from './Component/TableRadio';
 import TableCheck from './Component/TableCheck';
+import Pie from './Component/Pie';
+import Bar from './Component/Bar';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -60,10 +61,11 @@ class App extends Component {
                     <Route path='/admin/order' component={Order}/>
                     <Route path='/admin/person' component={Staff}/>
                     <Route path='/admin/bikeMap' component={Staff}/>
-                    <Route path='/admin/icon' component={SmallIcon}/>
                     <Route path='/admin/power' component={Power}/>
                     <Route path='/admin/table/radio' component={TableRadio}/>
                     <Route path='/admin/table/check' component={TableCheck}/>
+                    <Route path='/admin/icon/bar' component={Bar}/>
+                    <Route path='/admin/icon/pie' component={Pie}/>
                     <Route component={NoMatch}/>
                   </Switch>  
                 </Admin>

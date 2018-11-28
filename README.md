@@ -64,4 +64,10 @@ API: http://t.weather.sojson.com/api/weather/city/+ city.code
  调用百度地图API：
  https://map.baidu.com/   ->  下方(地图开放平台)  -->  开发文档 --> Web开发 -->  Javascript API --> 申请密钥
 
+ (九)富文本编辑器的实现
+ 安装插件 React-draft-wysiwyg 和 draftjs-to-html: 
+ yarn add react-draft-wysiwyg draftjs-to-html 
+ 参考文档： https://www.npmjs.com/package/react-draft-wysiwyg
 
+ (十) 图标功能使用插件 百度Echarts
+  下载百度Echarts(下载两个): yarn add echarts echarts-for-react
