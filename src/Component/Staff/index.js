@@ -14,11 +14,19 @@ class Staff extends Component {
       deleteShow: false,
       editShow: false,
       detailShow: false,
+      valueDetail:[],
     }
     this.openModal = this.openModal.bind(this);
     this.cancelAdd = this.cancelAdd.bind(this);
     this.editCancel = this.editCancel.bind(this);
     this.closeDetail = this.closeDetail.bind(this);
+    this.detail = this.detail.bind(this);
+  }
+
+  detail(value) {
+    this.setState({
+      valueDetail: value,
+    });
   }
 
  // 员工详情弹窗关闭
@@ -76,9 +84,9 @@ class Staff extends Component {
         </Card>
          <StaffAdd visible={addShow} cancelAdd={this.cancelAdd}/>
          <StaffDelete visible={deleteShow}/>
-         <StaffDetail visible={detailShow} close={this.closeDetail}/>
+         <StaffDetail visible={detailShow} close={this.closeDetail} valueDetail={this.state.valueDetail}/>
          <EditStaff visible={editShow} editCancel={this.editCancel}/>
-        <StaffList />
+        <StaffList detail={this.detail}/>
       </div>
     );
   }

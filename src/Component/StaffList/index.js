@@ -57,7 +57,7 @@ class StaffList extends Component {
     const rowSelection = {
       type: 'radio', // 单选还是多选
       onChange: (selectedRowKeys, selectedRows) => {
-        console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+        this.props.detail(selectedRows);
       }
     }
     return (
