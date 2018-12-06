@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import StaffLogin from '../StaffLogin';
 import StaffList from '../StaffList';
-import { Button,Card } from 'antd';
+import { Button,Card,message } from 'antd';
 import EditStaff from '../EditStaff';
 import StaffAdd from '../StaffAdd';
-import StaffDelete from '../StaffDelete';
+import baseUrl from '../../Config/BaseUrl';
 import StaffDetail from '../StaffDetail';
+import axios from 'axios';
 class Staff extends Component {
   constructor() {
     super();
@@ -15,14 +16,24 @@ class Staff extends Component {
       editShow: false,
       detailShow: false,
       valueDetail:[],
+      id:[],
     }
     this.openModal = this.openModal.bind(this);
     this.cancelAdd = this.cancelAdd.bind(this);
     this.editCancel = this.editCancel.bind(this);
     this.closeDetail = this.closeDetail.bind(this);
     this.detail = this.detail.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
+  // 删除员工的id
+  delete(id) {
+    this.setState({
+      id:id[0],
+    });
+  }
+
+  // 员工详情选中的值
   detail(value) {
     this.setState({
       valueDetail: value,
@@ -65,14 +76,21 @@ class Staff extends Component {
         detailShow: true,
       });
     } else {
-      this.setState({
-        deleteShow: true,
+      // 删除
+      axios.get(baseUrl + '/staff/delete',{
+        params:{
+          id:this.state.id
+        }
+      }).then((res) => {
+        message.info(res.data.data);
+      }).catch( (err) => {
+        console.log(err);
       });
     }
   }
 
   render() {
-   const { addShow,deleteShow,editShow,detailShow } = this.state;
+   const { addShow,editShow,detailShow } = this.state;
     return(
       <div>
         <StaffLogin />
@@ -83,10 +101,9 @@ class Staff extends Component {
           <Button type='danger'  onClick={() => this.openModal('del')} icon='delete'>删除员工</Button>
         </Card>
          <StaffAdd visible={addShow} cancelAdd={this.cancelAdd}/>
-         <StaffDelete visible={deleteShow}/>
          <StaffDetail visible={detailShow} close={this.closeDetail} valueDetail={this.state.valueDetail}/>
          <EditStaff visible={editShow} editCancel={this.editCancel}/>
-        <StaffList detail={this.detail}/>
+        <StaffList detail={this.detail} delete={this.delete}/>
       </div>
     );
   }

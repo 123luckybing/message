@@ -58,6 +58,7 @@ class StaffList extends Component {
       type: 'radio', // 单选还是多选
       onChange: (selectedRowKeys, selectedRows) => {
         this.props.detail(selectedRows);
+        this.props.delete(selectedRowKeys);
       }
     }
     return (

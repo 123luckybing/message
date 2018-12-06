@@ -14,7 +14,6 @@ class StaffDetail extends Component {
 
   render() {
     const { valueDetail } = this.props;
-    console.log( this.props.valueDetail);
     const { visible } = this.props;
     const layoutFormItem  = {
       labelCol: {
