@@ -18,6 +18,14 @@ class Staff extends Component {
     this.openModal = this.openModal.bind(this);
     this.cancelAdd = this.cancelAdd.bind(this);
     this.editCancel = this.editCancel.bind(this);
+    this.closeDetail = this.closeDetail.bind(this);
+  }
+
+ // 员工详情弹窗关闭
+  closeDetail() {
+    this.setState({
+      detailShow: false,
+    });
   }
 
   // 编辑员工关闭弹窗
@@ -46,11 +54,11 @@ class Staff extends Component {
       });
     } else if( type === 'detail' ) {
       this.setState({
-        deleteShow: true,
+        detailShow: true,
       });
     } else {
       this.setState({
-        detailShow: true,
+        deleteShow: true,
       });
     }
   }
@@ -68,7 +76,7 @@ class Staff extends Component {
         </Card>
          <StaffAdd visible={addShow} cancelAdd={this.cancelAdd}/>
          <StaffDelete visible={deleteShow}/>
-         <StaffDetail visible={detailShow}/>
+         <StaffDetail visible={detailShow} close={this.closeDetail}/>
          <EditStaff visible={editShow} editCancel={this.editCancel}/>
         <StaffList />
       </div>

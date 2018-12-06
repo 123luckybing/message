@@ -116,7 +116,7 @@ class EditStaff extends Component {
             <FormItem {...formLayout} label='生日'>
               {
                 getFieldDecorator('birthday',{
-                  initialValue: moment(data.birth,dateFormat), //DatePicker设置初始值
+                  initialValue: moment(data.birth), //DatePicker设置初始值
                   rules:[{
                     required: true,
                     message: '请填写生日'
