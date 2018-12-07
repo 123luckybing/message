@@ -28,6 +28,7 @@ import TableCheck from './Component/TableCheck';
 import Pie from './Component/Pie';
 import Bar from './Component/Bar';
 import Line from './Component/Line';
+import BikeMap from './Component/BikeMap';
 import { Route, BrowserRouter as Router,Switch} from 'react-router-dom';
 class App extends Component {
   render() {
@@ -61,7 +62,7 @@ class App extends Component {
                     <Route path='/admin/text' component={Text}/>
                     <Route path='/admin/order' component={Order}/>
                     <Route path='/admin/person' component={Staff}/>
-                    <Route path='/admin/bikeMap' component={Staff}/>
+                    <Route path='/admin/bikeMap' component={BikeMap}/>
                     <Route path='/admin/power' component={Power}/>
                     <Route path='/admin/table/radio' component={TableRadio}/>
                     <Route path='/admin/table/check' component={TableCheck}/>
